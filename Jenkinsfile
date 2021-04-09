@@ -17,7 +17,7 @@ pipeline{
          }
          stage ('mvn build'){
              steps{
-                 sh 'mvn clean package'
+                 sh "mvn clean package"
                  sh 'cp /home/jenkins/workspace/mvn/target/*.war /home/jenkins/workspace/mvn/target/myweb.war'
              }
          }
@@ -37,7 +37,7 @@ pipeline{
                  label 'ansible'
              }
              steps{
-                 sh 'docker image build . -t kgovinda/143:${DOCKER_TAG}' 
+                 sh "docker image build . -t kgovinda/143:${DOCKER_TAG}" 
              }
          }
          stage('ansible ping'){
