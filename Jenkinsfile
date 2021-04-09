@@ -18,7 +18,7 @@ pipeline{
          stage ('mvn build'){
              steps{
                  sh "mvn clean package"
-                 sh 'mv /home/jenkins/workspace/mvn/target/*.war /workspace/mvn/target/myweb.war'
+                 
              }
          }
          stage('copy of war file'){
@@ -26,7 +26,7 @@ pipeline{
              steps{
                  sshagent(credentials: ['ansible'], ignoreMissing: true) {
 
-              sh 'scp -o StrictHostKeyChecking=no /workspace/mvn/target/myweb.war  jenkins@10.0.3.203:/workspace/mvn/target/'
+              sh 'scp -o StrictHostKeyChecking=no /workspace/mvn/target/*.war  jenkins@10.0.3.203:/workspace/mvn/target/dockeransible.war'
                }
 
              }
