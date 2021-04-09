@@ -18,7 +18,7 @@ pipeline{
          stage ('mvn build'){
              steps{
                  sh "mvn clean package"
-                 sh 'cp /home/jenkins/workspace/mvn/target/*.war /home/jenkins/workspace/mvn/target/myweb.war'
+                 sh "cp /home/jenkins/workspace/mvn/target/*.war /home/jenkins/workspace/mvn/target/myweb.war"
              }
          }
          stage('copy of war file'){
@@ -45,8 +45,8 @@ pipeline{
                  label 'ansible'
              }
              steps{
-                 sh'ansible -m ping -i hosts all'
-                 sh 'ansible-palybook -i hosts deploy-docker.yml all'
+                 sh "ansible -m ping -i hosts al"
+                 sh "ansible-palybook -i hosts deploy-docker.yml all"
              }
          }
      }
