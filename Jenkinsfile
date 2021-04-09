@@ -18,7 +18,7 @@ pipeline{
          stage ('mvn build'){
              steps{
                  sh "mvn clean package"
-                 sh "cp /home/jenkins/workspace/mvn/target/*.war /home/jenkins/workspace/mvn/target/myweb.war"
+                 sh 'mv /home/jenkins/workspace/mvn/target/*.war /home/jenkins/workspace/mvn/target/myweb.war'
              }
          }
          stage('copy of war file'){
