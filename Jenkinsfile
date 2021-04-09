@@ -22,6 +22,9 @@ pipeline{
              }
          }
          stage('copy of war file'){
+             agent{
+                 label 'maven'
+             }
              
              steps{
                  sshagent(credentials: ['ansible'], ignoreMissing: true) {
