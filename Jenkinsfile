@@ -12,7 +12,6 @@ pipeline{
      stages{
          stage('scm checkout'){
              steps{
-                 sh 'git checkout master'
                 git credentialsId: 'git', url: 'https://github.com/govinda143/dockeransiblejenkins.git'
              }
          }
@@ -38,7 +37,7 @@ pipeline{
                  label 'ansible'
              }
              steps{
-                 sh 'docker image build . -t kgovinda/143:${DOCKER_TAG} ' 
+                 sh 'docker image build . -t kgovinda/143:${DOCKER_TAG}' 
              }
          }
          stage('ansible ping'){
@@ -46,7 +45,7 @@ pipeline{
                  label 'ansible'
              }
              steps{
-                 sh'ansible -m ping -i /home/jenkins/hosts all'
+                 sh'ansible -m ping -i hosts all'
                  sh 'ansible-palybook -i hosts deploy-docker.yml all'
              }
          }
