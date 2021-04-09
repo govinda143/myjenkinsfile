@@ -26,7 +26,7 @@ pipeline{
              steps{
                  sshagent(credentials: ['ansible'], ignoreMissing: true) {
 
-              sh 'scp -o StrictHostKeyChecking=no /home/jenkins/workspace/mvn/target/*.war  jenkins@10.0.3.203:/home/jenkins/target/'
+              sh 'scp -o StrictHostKeyChecking=no /home/jenkins/workspace/mvn/target/*.war  jenkins@10.0.3.203:/home/jenkins/workspace/mvn/target'
                }
 
              }
