@@ -51,6 +51,7 @@ pipeline{
          stage('docker push'){
              agent{
                  label 'ansible'
+             }
          steps{
                  withCredentials([string(credentialsId: 'doc1', variable: 'dochib')]) {
                  sh "docker login -u kgovinda -p ${dochib}"
