@@ -46,8 +46,7 @@ pipeline{
              steps{
                  sh "docker image build . -t kgovinda/143:${DOCKER_TAG}" 
              }
-         }
-         stage('docker push image'){
+        
              steps{
                  withCredentials([string(credentialsId: 'doc1', variable: 'dochib')]) {
                  sh "docker login -u kgovinda -p ${dochib}"
