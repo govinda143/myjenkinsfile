@@ -17,6 +17,7 @@ pipeline{
          }
          agent{
                  label 'ansible'
+         }
          stage ('mvn build'){
              steps{
                  sh "mvn clean package"
