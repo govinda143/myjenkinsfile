@@ -22,11 +22,8 @@ pipeline{
              }
          }
          stage('copy of war file'){
-             agent{
-                 label 'maven'
-             }
              
-             steps{
+            steps{
                  sshagent(credentials: ['ansible'], ignoreMissing: true) {
 
               sh 'scp -o StrictHostKeyChecking=no /home/jnekins/workspace/mvn/target/*.war  jenkins@10.0.3.203:/home/jenkins/workspace/mvn/target/'
