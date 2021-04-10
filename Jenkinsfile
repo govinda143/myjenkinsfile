@@ -47,6 +47,14 @@ pipeline{
                  sh "docker image build . -t kgovinda/143:${DOCKER_TAG}" 
              }
          }
+         stage('docker push imsge'){
+             steps{
+                 withCredentials([string(credentialsId: 'doc1', variable: 'dochib')]) {
+                 sh"docker login -u kgovinda -p ${dochib}"
+                 } 
+                 sh"docker push kgovinda/143:${DOCKER_TAG}"
+             }
+         }
          stage('ansible ping'){
              agent{
                  label 'ansible'
