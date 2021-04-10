@@ -1,3 +1,4 @@
+
 def getversion(){
     def commitHash = sh returnStdout: true, script: 'git rev-parse --short HEAD'
     return commitHash
