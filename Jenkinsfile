@@ -65,7 +65,7 @@ pipeline{
              }
              steps{
                  sh "ansible -m ping -i hosts all"
-                 sh "ansible-palybook -i hosts deploy-docker.yml all"
+                 ansiblePlaybook credentialsId: 'ansible', extras: " -e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'hosts', playbook: 'deploy-docker.yml'
              }
          }
      }
