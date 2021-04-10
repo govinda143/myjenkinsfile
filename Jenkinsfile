@@ -15,10 +15,11 @@ pipeline{
                 git credentialsId: 'git', url: 'https://github.com/govinda143/dockeransiblejenkins.git'
              }
          }
-         agent{
+         
+         stage ('mvn build'){
+             agent{
                  label 'maven'
          }
-         stage ('mvn build'){
              steps{
                  sh "mvn clean package"
                  
