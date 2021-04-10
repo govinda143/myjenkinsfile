@@ -47,12 +47,12 @@ pipeline{
                  sh "docker image build . -t kgovinda/143:${DOCKER_TAG}" 
              }
          }
-         stage('docker push imsge'){
+         stage('docker push image'){
              steps{
                  withCredentials([string(credentialsId: 'doc1', variable: 'dochib')]) {
-                 sh"docker login -u kgovinda -p ${dochib}"
+                 sh "docker login -u kgovinda -p ${dochib}"
                  } 
-                 sh"docker push kgovinda/143:${DOCKER_TAG}"
+                 sh "docker push kgovinda/143:${DOCKER_TAG}"
              }
          }
          stage('ansible ping'){
@@ -60,7 +60,7 @@ pipeline{
                  label 'ansible'
              }
              steps{
-                 sh "ansible -m ping -i hosts al"
+                 sh "ansible -m ping -i hosts all"
                  sh "ansible-palybook -i hosts deploy-docker.yml all"
              }
          }
