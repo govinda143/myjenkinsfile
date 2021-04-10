@@ -58,7 +58,6 @@ pipeline{
                  } 
                  sh "docker push kgovinda/143:${DOCKER_TAG}"
              }
-         }
      }
          stage('ansible ping'){
              agent{
