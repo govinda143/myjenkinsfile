@@ -17,9 +17,7 @@ pipeline{
              }
          }
          stage('sonar qube'){
-             agent{
-                 label 'maven'
-            }
+             
              steps{
                  sh'mvn sonar:sonar \
          -Dsonar.host.url=http://http://3.235.240.190:9000 \
