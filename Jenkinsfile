@@ -16,6 +16,13 @@ pipeline{
                 git credentialsId: 'git', url: 'https://github.com/govinda143/dockeransiblejenkins.git'
              }
          }
+         stage('sonar qube'){
+             steps{
+                 withSonarQubeEnv(credentialsId: 'sonar') {
+                 sh 'mvn sonar:sonar'
+                 }
+             }
+         }
          
          stage ('mvn build'){
              agent{
