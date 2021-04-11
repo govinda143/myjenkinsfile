@@ -21,9 +21,9 @@ pipeline{
                  label 'maven'
             }
              steps{
-                 mvn sonar:sonar \
+                 sh'mvn sonar:sonar \
          -Dsonar.host.url=http://http://3.235.240.190:9000 \
-         -Dsonar.login= 7a8c9553892d1dee7fd7cd615b753168e65c7041
+         -Dsonar.login= 7a8c9553892d1dee7fd7cd615b753168e65c7041'
              }
          }
          
