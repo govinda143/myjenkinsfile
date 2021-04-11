@@ -17,6 +17,9 @@ pipeline{
              }
          }
          stage('sonar qube'){
+             agent{
+                 label 'maven'
+         }
              
              steps{
                  sh'mvn sonar:sonar \
