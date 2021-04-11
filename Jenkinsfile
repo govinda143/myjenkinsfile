@@ -18,8 +18,10 @@ pipeline{
          }
          stage('sonar qube'){
              steps{
+                 script{
                  withSonarQubeEnv(credentialsId: 'sonar') {
-                 sh 'mvn sonar:sonar'
+                     sh 'mvn sonar:sonar'
+                    }
                  }
              }
          }
