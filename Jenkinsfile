@@ -21,11 +21,9 @@ pipeline{
                  label 'maven'
             }
              steps{
-                 script{
-                 withSonarQubeEnv(credentialsId: 'sonar') {
-                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.8:sonar'
-                    }
-                 }
+                 mvn sonar:sonar \
+         -Dsonar.host.url=http://http://3.235.240.190:9000 \
+         -Dsonar.login= 7a8c9553892d1dee7fd7cd615b753168e65c7041
              }
          }
          
